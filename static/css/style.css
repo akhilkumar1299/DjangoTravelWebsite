@@ -1,0 +1,466 @@
+.whole_font{
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Navbar */
+
+.navbar {
+    transition: all 0.4s;
+}
+
+.navbar .nav-link {
+    color: #fff;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar .navbar-brand {
+    color: #fff;
+}
+
+
+/* Change navbar styling on scroll */
+.navbar.active {
+    background: #0f0f0f;
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar.active .nav-link {
+    color: #fff;
+}
+
+.navbar.active .nav-link:hover,
+.navbar.active .nav-link:focus {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar.active .navbar-brand {
+    color: #fff;
+}
+
+
+/* Change navbar styling on small viewports */
+@media (max-width: 991.98px) {
+    .navbar {
+        background: #0f0f0f;
+    }
+
+    .navbar .navbar-brand, .navbar .nav-link {
+        color: #fff;
+    }
+}
+
+  /* Search Form */
+
+.form-control:focus {
+    box-shadow: none;
+  }
+
+.form-control-underlined {
+    border-width: 0;
+    border-bottom-width: 1px;
+    border-radius: 0;
+    padding-left: 0;
+  }
+
+.form-control::placeholder {
+  font-size: 0.95rem;
+  color: #aaa;
+  font-style: italic;
+}
+
+/* Prallax */
+
+.parallax {
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Navigation Bar */
+.cool_effect::after{
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #fff;
+  transition: width .3s;
+}
+
+.cool_effect:hover::after{
+  width: 100%;
+  transition: width .3s;
+}
+
+.jumbotron {
+    margin-bottom: 0px;
+    height: 600px;
+    background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+
+    padding-top: 100px;
+}
+
+.icon i{
+   font-size: 80px;
+   margin-bottom: 20px;
+
+   text-align: center;
+}
+
+
+#service:hover{
+  background-color: #f05053;
+  transition: 0.4s;
+  color: white;
+}
+
+@media (min-width: 992px) {
+  .animate {
+    animation-duration: 0.3s;
+    -webkit-animation-duration: 0.3s;
+    animation-fill-mode: both;
+    -webkit-animation-fill-mode: both;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+  100% {
+    transform:translateY(0rem);
+    opacity: 1;
+  }
+  0% {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes slideIn {
+  0% {
+    -webkit-transform: transform;
+    -webkit-opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    -webkit-opacity: 1;
+  }
+  0% {
+    -webkit-transform: translateY(1rem);
+    -webkit-opacity: 0;
+  }
+}
+
+.slideIn {
+  -webkit-animation-name: slideIn;
+  animation-name: slideIn;
+}
+
+/* Navigation end */
+
+/* Domestic View */
+
+.exterior {
+  min-height: 100vh;
+  background: #fafafa;
+}
+
+.hover {
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 60%;
+}
+
+.hover-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 90;
+  transition: all 0.4s;
+}
+
+.hover img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.3s;
+}
+
+.hover-content {
+  position: relative;
+  z-index: 99;
+}
+
+
+/* DEMO 1 ============================== */
+.hover-1 img {
+  width: 105%;
+  position: absolute;
+  top: 0;
+  left: -5%;
+  transition: all 0.3s;
+}
+
+.hover-1-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  transition: all 0.4s;
+}
+
+.hover-1 .hover-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hover-1-description {
+  transform: translateY(0.5rem);
+  transition: all 0.4s;
+  opacity: 0;
+}
+
+.hover-1:hover .hover-1-content {
+  bottom: 2rem;
+}
+
+.hover-1:hover .hover-1-description {
+  opacity: 1;
+  transform: none;
+}
+
+.hover-1:hover img {
+  left: 0;
+}
+
+.hover-1:hover .hover-overlay {
+  opacity: 0.3;
+}
+
+/* DEMO 2 ============================== */
+.hover-2 .hover-overlay {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1));
+}
+
+.hover-2-title {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  z-index: 99;
+  transition: all 0.3s;
+}
+
+.hover-2-description {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  opacity: 0;
+  left: 0;
+  text-align: center;
+  z-index: 99;
+  transition: all 0.3s;
+}
+
+.hover-2:hover .hover-2-title {
+  transform: translateY(-1.5rem);
+}
+
+.hover-2:hover .hover-2-description {
+  bottom: 0.5rem;
+  opacity: 1;
+}
+
+.hover-2:hover .hover-overlay {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.1));
+}
+
+/* DEMO 5 ============================== */
+.hover-5::after {
+  content: '';
+  width: 100%;
+  height: 10px;
+  background: #47c650;
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  display: block;
+  transition: all 0.3s;
+  z-index: 999;
+}
+
+.hover-5 .hover-overlay {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.hover-5-title {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  transition: all 0.3s;
+  padding: 2rem 3rem;
+  z-index: 99;
+}
+
+.hover-5-title span {
+  transition: all 0.4s;
+  opacity: 0;
+  color: #47c650;
+}
+
+.hover-5:hover .hover-overlay {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.hover-5:hover .hover-5-title {
+  bottom: 0;
+}
+
+.hover-5:hover .hover-5-title span {
+  opacity: 1;
+}
+
+.hover-5:hover::after {
+  bottom: 0;
+}
+
+/* FAQ */
+.faqback{
+  background: #ff5f6d;
+  background: -webkit-linear-gradient(to right, #ff5f6d, #ffc371);
+  background: linear-gradient(to right, #ff5f6d, #ffc371);
+
+}
+
+.collapsible-link::before {
+  content: '';
+  width: 14px;
+  height: 2px;
+  background: #333;
+  position: absolute;
+  top: calc(50% - 1px);
+  right: 1rem;
+  display: block;
+  transition: all 0.3s;
+}
+
+/* Vertical line */
+.collapsible-link::after {
+  content: '';
+  width: 2px;
+  height: 14px;
+  background: #333;
+  position: absolute;
+  top: calc(50% - 7px);
+  right: calc(1rem + 6px);
+  display: block;
+  transition: all 0.3s;
+}
+
+.collapsible-link[aria-expanded='true']::after {
+  transform: rotate(90deg) translateX(-1px);
+}
+
+.collapsible-link[aria-expanded='true']::before {
+  transform: rotate(180deg);
+}
+
+/* Footer */
+
+.footerback{
+  background: #ff5f6d;
+  background: -webkit-linear-gradient(to right, #ff5f6d, #ffc371);
+  background: linear-gradient(to right, #ff5f6d, #ffc371);
+}
+
+#button-addon1 {
+  color: #ffc371;
+}
+
+
+.form-control::placeholder {
+  font-size: 0.95rem;
+  color: #aaa;
+  font-style: italic;
+}
+
+.form-control.shadow-0:focus {
+  box-shadow: none;
+}
+
+/* Daywise */
+
+/*  Services */
+
+.mb-60 {
+    margin-bottom: 60px;
+}
+.services-inner {
+    border: 2px solid #2C5364;
+    margin-left: 35px;
+    transition: .3s;
+}
+.our-services-img {
+    float: left;
+    margin-left: -36px;
+    margin-right: 22px;
+    margin-top: 28px;
+}
+.our-services-text {
+    padding-right: 10px;
+}
+.our-services-text {
+    overflow: hidden;
+    padding: 28px 0 25px;
+}
+.our-services-text h4 {
+    color: #222222;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    padding-bottom: 10px;
+    position: relative;
+    text-transform: uppercase;
+}
+.our-services-text h4::before {
+    background: #ec6d48 none repeat scroll 0 0;
+    bottom: 0;
+    content: "";
+    height: 1px;
+    position: absolute;
+    width: 35px;
+}
+.our-services-wrapper:hover .services-inner {
+    background: #fff none repeat scroll 0 0;
+    border: 2px solid transparent;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+}
+.our-services-text p {
+    margin-bottom: 0;
+}
+.new_p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 26px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* Package list cards view */

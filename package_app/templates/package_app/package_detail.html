@@ -1,0 +1,224 @@
+{% extends "package_app/package_app_base.html" %}
+{% load static %}
+{% block body_block %}
+
+
+    <div class="parallax py-5" style="background-image: linear-gradient(to right, rgba(0,0,0,0.75), rgba(0,0,0,0)), url('../../media/{{package_detail.dst_img.name}}');">
+
+      <div class="container py-5 mb-5 text-white mt-5">
+        <h1 class="display-4 mt-5 py-5">{{package_detail.destination}}</h1>
+        <p class="lead">{{package_detail.description}}</p>
+        <hr class="my-4">
+        <p>Get the best stay location, visit every local landmark destinations with affordable prices.</p>
+      <a class="btn btn-primary btn-lg" href="#" role="button">Book Now</a>
+      <a class="btn btn-primary btn-lg" href="{% url 'package_app:generate_pdf' pk=package_detail.pk %}" role="button">Download Details</a>
+      </div>
+
+    </div>
+
+
+    <div class="container" style="margin-top:30px;margin-bottom:30px;">
+      <div class="row" style="margin-top:50px;">
+        <div class="col-md-12">
+          <h3>Package Travel Itinerary</h3><hr><br>
+          <h5>Travel Plans : </h5><br>
+
+          <div class="row">
+            <div class="col-lg-12 mx-auto">
+              <!-- Accordion -->
+              <div id="accordionExample" class="accordion shadow">
+                {% for daywise in package_detail.daywiseschedules.all %}
+                <!-- Accordion item -->
+                <div class="card">
+                  <div id="heading{{daywise.pk}}" class="card-header bg-white shadow-sm border-0">
+                    <h6 class="mb-0 font-weight-bold"><a data-toggle="collapse" data-target="#collapse{{daywise.pk}}" aria-expanded="false" aria-controls="collapse{{daywise.pk}}" class="d-block position-relative collapsed text-dark text-uppercase collapsible-link py-2">{{daywise.duration}} </a></h6>
+                  </div>
+                  <div id="collapse{{daywise.pk}}" aria-labelledby="heading{{daywise.pk}}" data-parent="#accordionExample" class="collapse">
+                    <div class="card-body p-5">
+                      <table class="table table-borderless table-hover">
+                        <thead class="thead-dark">
+                          <th scope="col">Person Type</th>
+                          <th scope="col">Package Fare</th>
+                        </thead>
+                        <tbody>
+                          <tr class="bg-white">
+                            <td>Adult</td>
+                            <td>INR {{daywise.price_adult}}/-</td>
+                          </tr>
+                          <tr class="bg-white">
+                            <td>Child</td>
+                            <td>INR {{daywise.price_child}}/-</td>
+                          </tr>
+                          <tr class="bg-white">
+                            <td>Infant</td>
+                            <td>INR {{daywise.price_infant}}/-</td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                        {% if daywise.day1 != '' %}
+                          Day 1 : <b>{{daywise.day1_name}}</b><br>
+                          {{daywise.day1}}<br><br>
+                        {% endif %}
+                        {% if daywise.day2 != '' %}
+                          Day 2 : <b>{{daywise.day2_name}}</b><br>
+                          {{daywise.day2}}<br><br>
+                        {% endif %}
+                        {% if daywise.day3 != '' %}
+                          Day 3 : <b>{{daywise.day3_name}}</b><br>
+                          {{daywise.day3}}<br><br>
+                        {% endif %}
+                        {% if daywise.day4 != '' %}
+                          Day 4 : <b>{{daywise.day4_name}}</b><br>
+                          {{daywise.day4}}<br><br>
+                        {% endif %}
+                        {% if daywise.day5 != '' %}
+                          Day 5 : <b>{{daywise.day5_name}}</b><br>
+                          {{daywise.day5}}<br><br>
+                        {% endif %}
+                        {% if daywise.day6 != '' %}
+                          Day 6 : <b>{{daywise.day6_name}}</b><br>
+                          {{daywise.day6}}<br><br>
+                        {% endif %}
+                        {% if daywise.day7 != '' %}
+                          Day 7 : <b>{{daywise.day7_name}}</b><br>
+                          {{daywise.day7}}<br><br>
+                        {% endif %}
+                        {% if daywise.day8 != '' %}
+                          Day 8 : <b>{{daywise.day8_name}}</b><br>
+                          {{daywise.day8}}<br><br>
+                        {% endif %}
+                        {% if daywise.day9 != '' %}
+                          Day 9 : <b>{{daywise.day9_name}}</b><br>
+                          {{daywise.day9}}<br><br>
+                        {% endif %}
+                        {% if daywise.day10 != '' %}
+                          Day 10 : <b>{{daywise.day10_name}}</b><br>
+                          {{daywise.day10}}<br><br>
+                        {% endif %}
+                        {% if daywise.day11 != '' %}
+                          Day 11 : <b>{{daywise.day11_name}}</b><br>
+                          {{daywise.day11}}<br><br>
+                        {% endif %}
+                        {% if daywise.day12 != '' %}
+                          Day 12 : <b>{{daywise.day12_name}}</b><br>
+                          {{daywise.day12}}<br><br>
+                        {% endif %}
+                        {% if daywise.day13 != '' %}
+                          Day 13 : <b>{{daywise.day13_name}}</b><br>
+                          {{daywise.day13}}<br><br>
+                        {% endif %}
+                        {% if daywise.day14 != '' %}
+                          Day 14 : <b>{{daywise.day14_name}}</b><br>
+                          {{daywise.day14}}<br><br>
+                        {% endif %}
+                        {% if daywise.day15 != '' %}
+                          Day 15 : <b>{{daywise.day15_name}}</b><br>
+                          {{daywise.day15}}<br><br>
+                        {% endif %}
+                        {% if daywise.day16 != '' %}
+                          Day 16 : <b>{{daywise.day16_name}}</b><br>
+                          {{daywise.day16}}<br><br>
+                        {% endif %}
+                        {% if daywise.day17 != '' %}
+                          Day 17 : <b>{{daywise.day17_name}}</b><br>
+                          {{daywise.day17}}<br><br>
+                        {% endif %}
+                        {% if daywise.day18 != '' %}
+                          Day 18 : <b>{{daywise.day18_name}}</b><br>
+                          {{daywise.day18}}<br><br>
+                        {% endif %}
+                        {% if daywise.day19 != '' %}
+                          Day 19 : <b>{{daywise.day19_name}}</b><br>
+                          {{daywise.day19}}<br><br>
+                        {% endif %}
+                        {% if daywise.day20 != '' %}
+                          Day 20 : <b>{{daywise.day20_name}}</b><br>
+                          {{daywise.day20}}<br><br>
+                        {% endif %}
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+
+              </div>
+            </div>
+          </div>
+
+            <br><br><h5>Vehicle : <b>{{package_detail.vehicle}}</b></h5><br>
+
+            <h5>Travel and Ticketing : <b>{{package_detail.tickets}}</b></h5><br>
+
+            <h5>Inclusions :</h5>
+            <b>
+              {% for inclusion in package_detail.inclusions.all %}
+              <ul>
+                <li><p>{{inclusion.name}}</p></li>
+              </ul>
+              {% endfor %}
+            </b><br>
+
+            <h5>Resorts and Hotels :</h5>
+            <br>
+            <b>
+              <table class="table table-borderless table-hover">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Location</th>
+                    <th scope="col">Hotel Name</th>
+                    <th scope="col">Star Rating</th>
+                  </tr>
+                </thead>
+                <tbody >
+                  {% for hotel in package_detail.hotels.all %}
+                  {% if hotel.display %}
+                  <tr class="bg-white">
+                    <td>{{hotel.city}}</td>
+                    <td>{{hotel.name}} / Similar</td>
+                    <td>{{hotel.star_rating}} Star</td>
+                  </tr>
+                  {% endif %}
+                  {% endfor %}
+              </table>
+              </b>
+            <br>
+            <!-- <h5>Package Cost :</h5>
+            <b>
+              <table class="table table-borderless table-hover">
+                <tbody>
+                  <tr class='btn-light'>
+                    <td>Adult :</td>
+                    <td>INR {{package_detail.price_adult}}/-</td>
+                  </tr>
+                  <tr class='btn-light'>
+                    <td>Child :</td>
+                    <td>INR {{package_detail.price_child}}/-</td>
+                  </tr>
+                  <tr class='btn-light'>
+                    <td>Infant :</td>
+                    <td>INR {{package_detail.price_infant}}/-</td>
+                  </tr>
+                </tbody>
+              </table>
+              </b><br> -->
+
+
+                {% if package_detail.visa == 1 %}
+                <h5>Visa : <b>Included</b></h5><br>
+                {% endif %}
+
+
+            <h5>Exclusions :</h5>
+            <b>
+              {% for exclusion in package_detail.exclusions.all %}
+              <ul>
+                <li><p>{{exclusion.name}}</p></li>
+              </ul>
+              {% endfor %}
+            </b>
+
+        </div>
+      </div>
+    </div>
+
+{% endblock %}

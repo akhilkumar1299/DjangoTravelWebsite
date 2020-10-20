@@ -1,0 +1,240 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body_block %}
+<!---------------header jumbotron------------->
+  <div class="jumbotron parallax" style="border-radius:0;height:auto; background-image: linear-gradient(to right, rgba(0,0,0,0.75), rgba(0,0,0,0)), url('{% static "images/back_img.jpg" %}');">
+    <div class="container" style="margin-top:100px;">
+      <h1 class="text-warning" style="font-size:70px;"><b>Explore</b></h1>
+      <h1 style="font-size:50px;">the amazing Destinations</h1>
+      <br>
+      <h1 style="font-size:22px;">Find great places to stay, eat, shop, or visit around the world</h1><br>
+
+      <div class="row mb-5 mt-4">
+        <div class="col-lg-7 mx-left">
+          <div class="py-3 rounded-lg" >
+            <h5 class="mb-4 text-white mt-2">Search Destinations</h5>
+            <!-- Custom rounded search bars with input group -->
+            <form action="{% url 'package_app:search_result' %}">
+              <div class="p-2 bg-light rounded rounded-pill shadow-sm mb-4">
+                <div class="input-group px-0">
+                  <input name="destination" type="search" placeholder="Enter the destination" aria-describedby="button-addon1" class="form-control border-0 bg-light">
+                  <div class="input-group-append">
+                    <button id="button-addon1" type="submit" class="btn btn-link text-danger" style="font-size:17.5px;"><i class="fa fa-search"></i></button>
+                  </div>
+                </div>
+              </div>
+
+            </form>
+            <!-- End -->
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="bg-white">
+    <div class="container">
+      <h2 class="py-5">Our Services</h2>
+    <div class="row">
+
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+              <div class="our-services-wrapper mb-60">
+                <div class="services-inner">
+                  <div class="our-services-img">
+                  <img src="{% static "images/holiday.png" %}" width="68px" alt="">
+                  </div>
+                  <div class="our-services-text">
+                    <h4>Holiday Packages </h4>
+                    <p class="new_p">Amazing domestic and world tours crafted for you.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+              <div class="our-services-wrapper mb-60">
+                <div class="services-inner">
+                  <div class="our-services-img">
+                  <img src="https://i.ya-webdesign.com/images/airplane-clip-itinerary-1.png" width="68px" alt="">
+                  </div>
+                  <div class="our-services-text">
+                    <h4>Air Tickets</h4>
+                    <p class="new_p">Airlines ticketing with discounted prices.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+              <div class="our-services-wrapper mb-60">
+                <div class="services-inner">
+                  <div class="our-services-img">
+                  <img src="{% static "images/passport.png" %}" width="68px" alt="">
+                  </div>
+                  <div class="our-services-text">
+                    <h4>Visa and Passport</h4>
+                    <p class="new_p">Offering assured visa and passport approvals for travelling.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+              <div class="our-services-wrapper mb-60">
+                <div class="services-inner">
+                  <div class="our-services-img">
+                  <img src="{% static "images/hotel.png" %}" width="68px" alt="">
+                  </div>
+                  <div class="our-services-text">
+                    <h4>Hotel Booking</h4>
+                    <p class="new_p">Book your destination hotel room with exciting offers.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+              <div class="our-services-wrapper mb-60">
+                <div class="services-inner">
+                  <div class="our-services-img">
+                  <img src="{% static "images/train.png" %}" width="68px" alt="">
+                  </div>
+                  <div class="our-services-text">
+                    <h4>Railway Tickets</h4>
+                    <p class="new_p">We also do Domestic Railway Ticketing.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+              <div class="our-services-wrapper mb-60">
+                <div class="services-inner">
+                  <div class="our-services-img">
+                  <img src="http://pngwebicons.com/uploads/car/ico/car_icon4919.ico" width="68px" alt="">
+                  </div>
+                  <div class="our-services-text">
+                    <h4>Rent a Car</h4>
+                    <p class="new_p">24 X 7 Car rental service anywhere in the world.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="parallax" style="background-image: linear-gradient(to right, rgba(255,255,255,0.5), rgba(255,255,255,0.25)), url('{% static "images/theme_back.jpg" %}');">
+  <div class="py-5" >
+      <div class="py-4">
+        <div class="container">
+        <h3 class="font-weight-bold mb-0">Travel By Theme</h3><br>
+        <p class="font-italic mb-4">Best curated packages according to travellers choice with exciting offers.</p>
+        <div class="row">
+          <!-- DEMO 1 Item-->
+          {% for category in Theme %}
+          {% if category.popular %}
+          <div class="col-lg-4 mb-4" >
+            <a href="{% url 'package_app:theme_category_detail' pk=category.pk %}">
+            <div class="hover hover-1 text-white rounded"><img src="{{ category.theme_img.url }}" alt="">
+              <div class="hover-overlay"></div>
+              <div class="hover-1-content px-5 py-2">
+                <h3 class="hover-1-title text-uppercase font-weight-bold mb-0"> <span class="font-weight-light">{{category.name}} </span></h3>
+                <p class="hover-1-description font-weight-light mb-0">{{category.description}}</p>
+              </div>
+            </div>
+            </a>
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+  <div class="py-5 container">
+
+      <h6>Popular</h6>
+      <h4><b>Featured</b> Indian Destinations</h4><br>
+
+    <div class="row">
+      <!-- DEMO 5 Item-->
+      {% for category in Domestic %}
+      {% if category.popular %}
+      <div class="col-lg-4 mb-4">
+        <a href="{% url 'package_app:domestic_category_detail' pk=category.pk %}">
+        <div class="hover hover-5 text-white rounded"><img src="{{ category.category_img.url }}" alt="">
+          <div class="hover-overlay"></div>
+          <div class="hover-5-content">
+            <h5 class="hover-5-title text-uppercase font-weight-light mb-0">{{category.name}} <strong class="font-weight-bold text-white">Tours </strong></h5>
+          </div>
+        </div>
+        </a>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+    </div>
+
+    <div class="parallax" style="background-image: linear-gradient(to right, rgba(255,255,255,0.75), rgba(255,255,255,0.5)), url('{% static "images/singapore.jpg" %}');">
+      <div class="py-5 container">
+      <h6>Popular</h6>
+      <h4><b>Featured</b> International Destinations</h4><br>
+      <div class="row">
+        <!-- DEMO 5 Item-->
+        {% for category in International %}
+        {% if category.popular %}
+        <div class="col-lg-4 mb-4">
+          <a href="{% url 'package_app:international_category_detail' pk=category.pk %}">
+          <div class="hover hover-5 text-white rounded"><img src="{{ category.category_img.url }}" alt="">
+            <div class="hover-overlay"></div>
+            <div class="hover-5-content">
+              <h5 class="hover-5-title text-uppercase font-weight-light mb-0">{{category.name}} <strong class="font-weight-bold text-white">Tours </strong></h5>
+            </div>
+          </div>
+          </a>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    </div>
+
+
+
+
+<div class="faqback">
+  <div class="container" style="padding-top:30px;padding-bottom:80px;">
+  <!-- For demo purpose -->
+  <div class="row py-5">
+    <div class="col-lg-12 mx-auto text-white text-center">
+      <h1 class="display-4">FAQs</h1>
+    </div>
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-lg-12 mx-auto">
+      <!-- Accordion -->
+      <div id="accordionExample" class="accordion shadow">
+
+        <!-- Accordion item  -->
+        {% for faq in Faq %}
+        <div class="card">
+          <div id="heading{{faq.pk}}" class="card-header bg-white shadow-sm border-0">
+            <h6 class="mb-0 font-weight-bold"><a href="#" data-toggle="collapse" data-target="#collapse{{faq.pk}}" aria-expanded="False" aria-controls="collapse{{faq.pk}}" class="d-block position-relative text-dark text-uppercase collapsible-link py-2">{{faq.query}}</a></h6>
+          </div>
+          <div id="collapse{{faq.pk}}" aria-labelledby="heading{{faq.pk}}" data-parent="#accordionExample" class="collapse">
+            <div class="card-body p-5">
+              <p class="font-weight-light m-0">{{faq.answer}}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+{% endblock %}

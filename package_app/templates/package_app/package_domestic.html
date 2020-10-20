@@ -1,0 +1,48 @@
+{% extends "package_app/package_app_base.html" %}
+{% block body_block %}
+
+<div class="jumbotron bg-warning"  style="border-radius:0;height:auto">
+  <div class="container text-dark pt-5">
+    <h3 class="font-weight-bold mb-0">Indian Domestic Tours</h3><br>
+  </div>
+</div>
+
+<div class="exterior pt-5">
+
+<div class="container">
+  <div class="px-lg-0">
+
+    <div class="row">
+      {% for pack in domestic_list %}
+        {% if pack.type == 'Domestic' %}
+      <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+        <div class="bg-white rounded shadow-sm" style="height:100%"><img src="{{pack.dst_img.url}}" alt="" class="img-fluid card-img-top" style="width:100%; height:150px; object-fit: cover;">
+          <div class="p-4">
+
+            <h6> <a href="{% url 'package_app:detail' pk=pack.pk %}" class="text-danger"><b>{{pack.destination}}</b></a></h6>
+
+            <p class="small mb-0">Starting at
+
+              {% for price in pack.daywiseschedules.all %}
+              {% if price.lowest %}
+                INR {{price.price_adult}}/-<br>
+                Duration : {{price.duration}}
+              {% endif %}
+              {% endfor %}
+            </p>
+
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+
+{% endblock %}

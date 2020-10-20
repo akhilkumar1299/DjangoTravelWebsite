@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>SB Holidays!</title>
+    <style type="text/css">
+            body {
+                font-weight: 200;
+                font-size: 14px;
+            }
+            .header {
+                font-size: 14px;
+                font-weight: 100;
+                color: #000;
+            }
+            .title {
+                font-size: 22px;
+                font-weight: 100;
+               /* text-align: right;*/
+               padding: 10px 20px 0px 20px;
+            }
+            .title span {
+                color: #007cae;
+            }
+            .details {
+                padding: 5px 5px 5px 5px;
+                text-align: left !important;
+                /*margin-left: 40%;*/
+            }
+            .hrItem {
+                border: none;
+                height: 1px;
+                /* Set the hr color */
+                color: #333; /* old IE */
+                background-color: #fff; /* Modern Browsers */
+            }
+        </style>
+  </head>
+  <body>
+    <div class="header">
+      <img src="{% static "images/sb_logo.png" %}"  width="120" alt="">
+      <h1>SB Holidays</h1>
+      <p><b>Address :</b> Shop-5, A-Market, Sector-2, Bhilai, Chhattisgarh 490001 <br>
+        <b>Contact :</b>  Mob : (+91) 9424100220  &nbsp;&nbsp; Ph. : 0788-2223612</p>
+      <hr>
+    </div>
+    <div style="font-size: 22px;">
+      Package Itinerary
+    </div>
+    <div class='details'>
+            Destination : <b>{{package_detail_pdf.destination}}</b> <br>
+            Type :  <b>{{package_detail_pdf.type}}</b> <br>
+            Vehicle : <b>{{package_detail_pdf.vehicle}}</b><br>
+            Travel and Ticketing : <b>{{package_detail_pdf.tickets}}</b><br><br>
+            Travel Plans : <br>
+
+            {% for daywise in package_detail_pdf.daywiseschedules.all %}
+
+              <div style="background-color:#FFDD00;">
+                Duration Type: <b>{{daywise.duration}}</b>
+              </div>
+              <div><br>
+                <table border="1">
+                  <thead>
+                    <th>Person Type</th>
+                    <th>Package Fare</th>
+                  </thead>
+                  <tbody style="text-align:center;">
+                    <tr>
+                      <td>Adult</td>
+                      <td>INR {{daywise.price_adult}}/-</td>
+                    </tr>
+                    <tr>
+                      <td>Child</td>
+                      <td>INR {{daywise.price_child}}/-</td>
+                    </tr>
+                    <tr>
+                      <td>Infant</td>
+                      <td>INR {{daywise.price_infant}}/-</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div><br>
+              {% if daywise.day1 != '' %}
+                Day 1 : <b>{{daywise.day1_name}}</b><br>
+                {{daywise.day1}}<br><br>
+              {% endif %}
+              {% if daywise.day2 != '' %}
+                Day 2 : <b>{{daywise.day2_name}}</b><br>
+                {{daywise.day2}}<br><br>
+              {% endif %}
+              {% if daywise.day3 != '' %}
+                Day 3 : <b>{{daywise.day3_name}}</b><br>
+                {{daywise.day3}}<br><br>
+              {% endif %}
+              {% if daywise.day4 != '' %}
+                Day 4 : <b>{{daywise.day4_name}}</b><br>
+                {{daywise.day4}}<br><br>
+              {% endif %}
+              {% if daywise.day5 != '' %}
+                Day 5 : <b>{{daywise.day5_name}}</b><br>
+                {{daywise.day5}}<br><br>
+              {% endif %}
+              {% if daywise.day6 != '' %}
+                Day 6 : <b>{{daywise.day6_name}}</b><br>
+                {{daywise.day6}}<br><br>
+              {% endif %}
+              {% if daywise.day7 != '' %}
+                Day 7 : <b>{{daywise.day7_name}}</b><br>
+                {{daywise.day7}}<br><br>
+              {% endif %}
+              {% if daywise.day8 != '' %}
+                Day 8 : <b>{{daywise.day8_name}}</b><br>
+                {{daywise.day8}}<br><br>
+              {% endif %}
+              {% if daywise.day9 != '' %}
+                Day 9 : <b>{{daywise.day9_name}}</b><br>
+                {{daywise.day9}}<br><br>
+              {% endif %}
+              {% if daywise.day10 != '' %}
+                Day 10 : <b>{{daywise.day10_name}}</b><br>
+                {{daywise.day10}}<br><br>
+              {% endif %}
+              {% if daywise.day11 != '' %}
+                Day 11 : <b>{{daywise.day11_name}}</b><br>
+                {{daywise.day11}}<br><br>
+              {% endif %}
+              {% if daywise.day12 != '' %}
+                Day 12 : <b>{{daywise.day12_name}}</b><br>
+                {{daywise.day12}}<br><br>
+              {% endif %}
+              {% if daywise.day13 != '' %}
+                Day 13 : <b>{{daywise.day13_name}}</b><br>
+                {{daywise.day13}}<br><br>
+              {% endif %}
+              {% if daywise.day14 != '' %}
+                Day 14 : <b>{{daywise.day14_name}}</b><br>
+                {{daywise.day14}}<br><br>
+              {% endif %}
+              {% if daywise.day15 != '' %}
+                Day 15 : <b>{{daywise.day15_name}}</b><br>
+                {{daywise.day15}}<br><br>
+              {% endif %}
+              {% if daywise.day16 != '' %}
+                Day 16 : <b>{{daywise.day16_name}}</b><br>
+                {{daywise.day16}}<br><br>
+              {% endif %}
+              {% if daywise.day17 != '' %}
+                Day 17 : <b>{{daywise.day17_name}}</b><br>
+                {{daywise.day17}}<br><br>
+              {% endif %}
+              {% if daywise.day18 != '' %}
+                Day 18 : <b>{{daywise.day18_name}}</b><br>
+                {{daywise.day18}}<br><br>
+              {% endif %}
+              {% if daywise.day19 != '' %}
+                Day 19 : <b>{{daywise.day19_name}}</b><br>
+                {{daywise.day9}}<br><br>
+              {% endif %}
+              {% if daywise.day20 != '' %}
+                Day 20 : <b>{{daywise.day20_name}}</b><br>
+                {{daywise.day20}}<br><br>
+              {% endif %}
+
+            {% endfor %}
+            <br>
+
+            Inclusions :<br>
+            <b>
+              {% for inclusion in package_detail_pdf.inclusions.all %}
+              <ul>
+                <li>{{inclusion.name}}</li>
+              </ul>
+              {% endfor %}
+            </b><br>
+
+            Exclusions :<br>
+            <b>
+              {% for exclusion in package_detail_pdf.exclusions.all %}
+              <ul>
+                <li>{{exclusion.name}}</li>
+              </ul>
+              {% endfor %}
+            </b><br><br>
+
+            {% if package_detail_pdf.visa == 1 %}
+            Visa : <b>Included</b><br><br>
+            {% endif %}
+
+            <h5>Resorts and Hotels :</h5>
+            <b>
+              <table border="1">
+                <thead>
+                  <tr>
+                    <th>Location</th>
+                    <th>Hotel Name</th>
+                    <th>Star Rating</th>
+                  </tr>
+                </thead>
+                <tbody style="text-align:center;">
+                  {% for hotel in package_detail_pdf.hotels.all %}
+                  {% if hotel.display %}
+                  <tr>
+                    <td>{{hotel.city}}</td>
+                    <td>{{hotel.name}} / Similar</td>
+                    <td>{{hotel.star_rating}} Star</td>
+                  </tr>
+                  {% endif %}
+                  {% endfor %}
+              </table>
+              </b>
+            <br>
+        </div>
+  </body>
+</html>

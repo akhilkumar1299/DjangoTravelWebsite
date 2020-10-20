@@ -1,0 +1,67 @@
+{% extends "package_app/package_app_base.html" %}
+{% block body_block %}
+
+<div class="jumbotron parallax" style="border-radius:0;height:auto; background-image: linear-gradient(to right, rgba(0,0,0,0.75), rgba(0,0,0,0)), url('{{domestic_detail.category_img.url}}');">
+  <div class="container" style="margin-top:100px;">
+    <h1 style="font-size:70px;"><b>Explore</b></h1>
+    <h1 style="font-size:50px;">{{domestic_detail.name}} Tours</h1>
+    <div class="row mb-5 mt-4">
+      <div class="col-lg-7 mx-left">
+        <div class="py-3 rounded-lg" >
+          <h5 class="mb-4 text-white mt-2">Search Destinations</h5>
+          <!-- Custom rounded search bars with input group -->
+          <form action="{% url 'package_app:search_result' %}">
+            <div class="p-2 bg-light rounded rounded-pill shadow-sm mb-4">
+              <div class="input-group px-0">
+                <input name="destination" type="search" placeholder="Enter the destination" aria-describedby="button-addon1" class="form-control border-0 bg-light">
+                <div class="input-group-append">
+                  <button id="button-addon1" type="submit" class="btn btn-link text-danger" style="font-size:17.5px;"><i class="fa fa-search"></i></button>
+                </div>
+              </div>
+            </div>
+
+          </form>
+          <!-- End -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="exterior pt-5">
+
+<div class="container">
+  <div class="px-lg-0">
+    <h3 class="font-weight-bold mb-3">{{domestic_detail.name}} India Tours</h3><br>
+    <div class="row">
+      {% for pack in domestic_detail.domestic_category.all %}
+      <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+        <div class="bg-white rounded shadow-sm" style="height:100%"><img src="{{pack.dst_img.url}}" alt="" class="img-fluid card-img-top" style="width:100%; height:150px; object-fit: cover;">
+          <div class="p-4">
+
+            <h6> <a href="{% url 'package_app:detail' pk=pack.pk %}" class="text-danger"><b>{{pack.destination}}</b></a></h6>
+
+            <p class="small mb-0">Starting at
+
+              {% for price in pack.daywiseschedules.all %}
+              {% if price.lowest %}
+                INR {{price.price_adult}}/-<br>
+                Duration : {{price.duration}}
+              {% endif %}
+              {% endfor %}
+            </p>
+
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+{% endblock %}
